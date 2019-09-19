@@ -31,7 +31,8 @@ while True:
     switch = GPIO.input(25)
 
     if joystickButton:
-        print("play a song!!!")
+        print("play a song")
+        joystickButton = 0
 
 
 print("joystick button "+str(joystickButton))
