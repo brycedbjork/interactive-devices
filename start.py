@@ -1,12 +1,16 @@
 import RPi.GPIO as GPIO
 import time
 
+genre = 0
+volume = 0
+# 0 = pop, 1 = rock, 2 = electronic
+genreString = ["pop", "rock", "electronic"]
+
 GPIO.setmode(GPIO.BCM)
 
 while True:
 
     # joystick
-    # 2 is joystick button: 0 when pressed, 1 when not
     GPIO.setup([2, 3, 4], GPIO.IN)
     if (GPIO.input(2)):
         joystickButton = 0
@@ -31,23 +35,23 @@ while True:
     GPIO.setup(25, GPIO.IN)
     switch = GPIO.input(25)
 
+    if joystickUp:
+        if volume < 10:
+            volume = volume + 1
+        time.sleep(1)
+
+    if joystickLeft:
+        if volume > 0:
+            volume = volume - 1
+        time.sleep(1)
+
     if joystickButton:
-        if switch:
-            print("play country pop")
-        else:
-            print("play hip hop")
-        time.sleep(2)
+        genre = (genre + 1) % 3
+        time.sleep(1)
 
     if button:
         if switch:
-            print("play electronic")
+            print(genreString[genre]+" @ volume:"+str(volume))
         else:
-            print("play heavy metal")
-        time.sleep(2)
-
-
-print("joystick button "+str(joystickButton))
-print("joystick up "+str(joystickUp))
-print("joystick left "+str(joystickLeft))
-print("button "+str(button))
-print("switch "+str(switch))
+            print("yell!")
+        time.sleep(1)
