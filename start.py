@@ -32,7 +32,17 @@ while True:
     switch = GPIO.input(25)
 
     if joystickButton:
-        print("play a song")
+        if switch:
+            print("play country pop")
+        else:
+            print("play hip hop")
+        time.sleep(2)
+
+    if button:
+        if switch:
+            print("play electronic")
+        else:
+            print("play heavy metal")
         time.sleep(2)
 
 
