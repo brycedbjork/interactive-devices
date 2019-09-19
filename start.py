@@ -7,8 +7,8 @@ GPIO.setup([2, 3, 4], GPIO.IN)
 
 # button
 GPIO.setup(24, GPIO.IN)
-print("button"+GPIO.input(24))
+print("button"+str(GPIO.input(24)))
 
 # switch
 GPIO.setup(25, GPIO.IN)
-print("switch"+GPIO.input(25))
+print("switch"+str(GPIO.input(25)))
