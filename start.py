@@ -38,20 +38,23 @@ while True:
     if joystickUp:
         if volume < 10:
             volume = volume + 1
+        print("volume: "+str(volume))
         time.sleep(1)
 
     if joystickLeft:
         if volume > 0:
             volume = volume - 1
+        print("volume: "+str(volume))
         time.sleep(1)
 
     if joystickButton:
         genre = (genre + 1) % 3
+        print("genre: "+genreString[genre])
         time.sleep(1)
 
     if button:
         if switch:
-            print(genreString[genre]+" @ volume:"+str(volume))
+            print("play "+genreString[genre]+" @ volume:"+str(volume))
         else:
             print("yell!")
         time.sleep(1)
