@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BCM)
 
@@ -32,7 +33,7 @@ while True:
 
     if joystickButton:
         print("play a song")
-        joystickButton = 0
+        time.sleep(2)
 
 
 print("joystick button "+str(joystickButton))
