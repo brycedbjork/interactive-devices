@@ -20,16 +20,21 @@ if (GPIO.input(4)):
 else:
     joystickLeft = 1
 
-print("joystick button "+str(joystickButton))
-print("joystick up "+str(joystickUp))
-print("joystick left "+str(joystickLeft))
-
 # button
 GPIO.setup(24, GPIO.IN)
 button = GPIO.input(24)
-print("button "+str(button))
 
 # switch
 GPIO.setup(25, GPIO.IN)
 switch = GPIO.input(25)
+
+while True:
+    if joystickButton:
+        print("play a song!!!")
+
+
+print("joystick button "+str(joystickButton))
+print("joystick up "+str(joystickUp))
+print("joystick left "+str(joystickLeft))
+print("button "+str(button))
 print("switch "+str(switch))
